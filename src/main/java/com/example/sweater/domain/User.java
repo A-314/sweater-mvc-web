@@ -16,6 +16,26 @@ public class User implements UserDetails {
     private String username;
     private String password;
     private boolean active;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getActivation() {
+        return activation;
+    }
+
+    public void setActivation(String activation) {
+        this.activation = activation;
+    }
+
+    private String email;
+    private String activation;
+
     @ElementCollection(targetClass = Role.class,fetch = FetchType.EAGER)
     @CollectionTable(name = "user_role",joinColumns = @JoinColumn(name="user_id"))//данное поле описывается в отдельной таблице для которой мы не описывали мэппинг
     @Enumerated(EnumType.STRING)
